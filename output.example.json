@@ -1,0 +1,17 @@
+{
+  "delayTime": 7742,
+  "executionTime": 987428,
+  "id": "8432fa4c-c994-47d5-950a-f49aec6f38ce-e2",
+  "output": {
+    "images": [
+      {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAFAAAAAtACAIAAACnmQKaAAEAAElEQVR4Xmz9WZMkWZKliX2Hr6iau0dEZlZlLd21TTdAg4fqIQLw//",
+        "filename": "FLUX_00001_.png",
+        "type": "base64"
+      }
+    ]
+  },
+  "status": "COMPLETED",
+  "workerId": "0pj0lmiflfbjuq"
+}
+
