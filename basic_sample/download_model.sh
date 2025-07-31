@@ -5,8 +5,8 @@ MODEL_DIR=/runpod-volume/models/
 mkdir -p $MODEL_DIR
 chmod -R 777 /runpod-volume/models
 # https://huggingface.co/realung/flux1-dev.safetensors/resolve/main/flux1-dev.safetensors
-if [ ! -f "$MODEL_DIR/vae/ultra_real_fine_tune.safetensors" ]; then
-    wget -O sdxl_vae.safetensors "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true" -P "$Model_DIR/unet
+if [ ! -f "$MODEL_DIR/vae/sdxl_vae.safetensors" ]; then
+    wget -O sdxl_vae.safetensors "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true" -P "$Model_DIR/vae"
 
 fi
 
