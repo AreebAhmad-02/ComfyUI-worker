@@ -1,7 +1,7 @@
 FROM runpod/worker-comfyui:5.2.0-base
 
 # Install required ComfyUI nodes for upscaling workflow
-RUN comfy-node-install rgthree-comfy wavespeed
+RUN comfy-node-install 
 
 # # download models using comfy-cli
 # # the "--filename" is what you use in your ComfyUI workflow
@@ -25,3 +25,4 @@ RUN ls /
 RUN ls /comfyui
 RUN rm -f /comfyui/extra_model_paths.yaml
 ADD extra_model_paths.yaml /comfyui/extra_model_paths.yaml
+ADD ADD download_model.sh /
