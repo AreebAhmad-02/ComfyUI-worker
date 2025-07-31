@@ -1,3 +1,10 @@
+{"input":{
+  "uid": "test_input",
+  "customModles":[],
+  "customNodes":[],
+  "images": [],
+
+  "workflow":
 {
   "3": {
     "inputs": {
@@ -104,4 +111,6 @@
       "title": "Save Image"
     }
   }
+}
+}
 }
