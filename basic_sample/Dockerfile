@@ -1,7 +1,7 @@
 FROM runpod/worker-comfyui:5.2.0-base
 
 # Install required ComfyUI nodes for upscaling workflow
-RUN comfy-node-install 
+RUN comfy-node-install rgthree-comfy
 
 # # download models using comfy-cli
 # # the "--filename" is what you use in your ComfyUI workflow
