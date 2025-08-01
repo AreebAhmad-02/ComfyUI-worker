@@ -1,17 +1,27 @@
 #!/bin/bash
 
+MODEL_DIR=/runpod-volume/ComfyUI/models
 
-MODEL_DIR=/runpod-volume/models/
-mkdir -p $MODEL_DIR
-chmod -R 777 /runpod-volume/models
-# https://huggingface.co/realung/flux1-dev.safetensors/resolve/main/flux1-dev.safetensors
+# Create the full model directory tree
+mkdir -p "$MODEL_DIR/vae"
+mkdir -p "$MODEL_DIR/checkpoints"
+chmod -R 777 "$MODEL_DIR"
+
+# Download SDXL VAE
 if [ ! -f "$MODEL_DIR/vae/sdxl_vae.safetensors" ]; then
-    wget -O sdxl_vae.safetensors "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true" -P "$Model_DIR/vae"
-
+    wget -O "$MODEL_DIR/vae/sdxl_vae.safetensors" \
+    "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true"
 fi
 
+# Download SD 1.5 checkpoint
 if [ ! -f "$MODEL_DIR/checkpoints/v1-5-pruned-emaonly-fp16.safetensors" ]; then
-  wget -O v1-5-pruned-emaonly-fp16.safetensors "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -P "$MODEL_DIR/checkpoints/"
+    wget -O "$MODEL_DIR/checkpoints/v1-5-pruned-emaonly-fp16.safetensors" \
+    "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true"
+fi
+
+if [ ! -f "$MODEL_DIR/checkpoints/sd_xl_refiner_1.0.safetensors" ]; then
+    wget -O "$MODEL_DIR/checkpoints/sd_xl_refiner_1.0.safetensors" \
+    "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 fi
 
 
