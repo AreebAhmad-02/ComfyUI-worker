@@ -27,5 +27,4 @@ RUN rm -f /comfyui/extra_model_paths.yaml
 ADD extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 ADD download_model.sh /
 RUN chmod +x /download_model.sh
-CMD ["/bin/bash", "-c", "/download_model.sh && /start.sh"]
-
+# CMD ["/bin/bash", "-c", "/download_model.sh && /start.sh"]
