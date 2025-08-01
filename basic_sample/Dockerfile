@@ -3,15 +3,6 @@ FROM runpod/worker-comfyui:5.2.0-base
 # Install required ComfyUI nodes for upscaling workflow
 RUN comfy-node-install rgthree-comfy
 
-# # download models using comfy-cli
-# # the "--filename" is what you use in your ComfyUI workflow
-# RUN comfy model download --url https://huggingface.co/KamCastle/jugg/resolve/main/juggernaut_reborn.safetensors --relative-path models/checkpoints --filename juggernaut_reborn.safetensors
-# RUN comfy model download --url https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.bin --relative-path models/ipadapter --filename ip-adapter-plus_sd15.bin
-# RUN comfy model download --url https://huggingface.co/shiertier/clip_vision/resolve/main/SD15/model.safetensors --relative-path models/clip_vision --filename models.safetensors
-# RUN comfy model download --url https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fcon.safetensors --relative-path models/diffusion_models --filename iclight_sd15_fcon.safetensors
-
-
-
 # Set Hugging Face cache directory to persistent volume
 ENV HF_HOME=/runpod-volume/models/huggingface
 
@@ -25,6 +16,7 @@ RUN ls /
 RUN ls /comfyui
 RUN rm -f /comfyui/extra_model_paths.yaml
 ADD extra_model_paths.yaml /comfyui/extra_model_paths.yaml
+ADD test_input.json /comfyui/test_input.json
 ADD download_model.sh /
 RUN chmod +x /download_model.sh
 # CMD ["/bin/bash", "-c", "/download_model.sh && /start.sh"]
